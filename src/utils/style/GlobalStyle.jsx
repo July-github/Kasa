@@ -8,6 +8,9 @@ const BodyGlobalStyle = createGlobalStyle`
     header, section{
         margin: 40px 100px;
     }
+    body{
+        margin: 0;
+    }
 `
 
 

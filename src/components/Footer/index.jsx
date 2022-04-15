@@ -7,7 +7,6 @@ const FooterDiv = styled.footer`
     background-color: ${Colors.footerBackground};
     height: 80px;
     font-size: 24px;
-    text-align: middle;
     color: ${Colors.secondary};
     display: flex;
     flex-direction: column;

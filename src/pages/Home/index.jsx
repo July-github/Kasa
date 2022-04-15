@@ -3,7 +3,8 @@ import styled from 'styled-components'
 import Logements from '../../datas/logements.json'
 import HomeBack from '../../assets/Home_background.jpg'
 import Colors from '../../utils/style/Colors'
-
+import { useNavigate, useParams } from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const CardContainer = styled.section`
   background-color: #F7F7F7;
@@ -30,6 +31,9 @@ const CardDiv = styled.div`
   position: relative;
   background: rgb(108,34,36);
   background: linear-gradient(0deg, rgba(108,34,36,0.7497592787114846) 0%, rgba(255,94,101,1) 100%);
+  &:hover{
+    cursor: pointer;
+  }
 `
 
 const HeadWrap = styled.div`
@@ -68,32 +72,39 @@ const HeadImageText = styled.h1`
   margin: 0;
 `
 
-function Home({title}) {
-    return (
-      <section>
-        <HeadWrap>
-          <HeadImageWrap>
-            <HeadImage src={HomeBack}/>
-          </HeadImageWrap>
-          <HeadImageTextWrap>
-            <HeadImageText>Chez vous, partout et ailleurs</HeadImageText>
-          </HeadImageTextWrap>
-        </HeadWrap>
-        <CardContainer>
-          <CardWrapper>
-            {Logements.map((Logement, id) => (
-              <CardDiv>
-                <Card
-                  key = {id}
-                  title = {Logement.title}
-                />
-              </CardDiv>
-            ))}
-          </CardWrapper>
-        </CardContainer>
+function Home() {
 
-      </section>
-    );
-  }
+  /*let navigate = useNavigate();
+  function changeNavigate(Logement) {
+     navigate ('/Logement/{Logement.id}')
+    }*/
+
+  return (
+    <section>
+      <HeadWrap>
+        <HeadImageWrap>
+          <HeadImage src={HomeBack} alt="Coast Image" />
+        </HeadImageWrap>
+        <HeadImageTextWrap>
+          <HeadImageText>Chez vous, partout et ailleurs</HeadImageText>
+        </HeadImageTextWrap>
+      </HeadWrap>
+      <CardContainer>
+        <CardWrapper>
+          {Logements.map((Logement) => (
+            <Link to={`/Logement/${Logement.id}`}>
+            <CardDiv>
+              <Card 
+                key = {`${Logement.id}`}
+                title = {Logement.title}
+              />
+            </CardDiv>
+            </Link>
+          ))}
+        </CardWrapper>
+      </CardContainer>
+    </section>
+  );
+}
   
-  export default Home;
+export default Home;

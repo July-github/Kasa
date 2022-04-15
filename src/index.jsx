@@ -7,6 +7,7 @@ import Header from './components/Header/index'
 import GlobalStyle from './utils/style/GlobalStyle'
 import Error from './pages/Error404/index'
 import Footer from './components/Footer/index'
+import Logement from './pages/Logement/index'
 
 ReactDOM.render(
     <React.StrictMode>
@@ -14,9 +15,10 @@ ReactDOM.render(
             <GlobalStyle/>
             <Header/>
             <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/APropos" element={<APropos />} />
-                <Route path="/*" element={<Error />} />
+                <Route path="/" element={<Home/>} />
+                <Route path="/APropos" element={<APropos/>} />
+                <Route path="/Logement/:id" element={<Logement/>} />
+                <Route path="/*" element={<Error/>} />
             </Routes>
             <Footer/>
         </Router>
