@@ -25,11 +25,11 @@ const CardWrapper = styled.div`
 const CardDiv = styled.div`
   height: 340px;
   width: 340px;
-  margin: 20px 20px;
+  margin: 20px 15px;
   border-radius: 10px;
   position: relative;
-  background: rgb(108,34,36);
-  background: linear-gradient(0deg, rgba(108,34,36,0.7497592787114846) 0%, rgba(255,94,101,1) 100%);
+  background-color: rgb(108,34,36);
+  background: linear-gradient(0deg, rgba(108,34,36,0.75) 0%, rgba(255,94,101,1) 100%);
   &:hover{
     cursor: pointer;
   }
@@ -88,6 +88,7 @@ function Home() {
             <CardDiv>
               <Card 
                 title = {accomodation.title}
+                cover = {accomodation.cover}
               />
             </CardDiv>
             </Link>

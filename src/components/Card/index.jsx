@@ -11,20 +11,37 @@ const CardTitle = styled.h2`
     bottom: 0;
 `
 
-function Card({title}){
+const CardCover = styled.img`
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit:cover;
+`
+
+const CardWrap = styled.div`
+    width: 100%;
+    height: 100%
+`
+
+function Card({title, cover}){
     return(
-            <CardTitle>
-                {title}
-            </CardTitle>
+            <CardWrap>
+                <CardCover src={cover} />
+                <CardTitle>
+                    {title}
+                </CardTitle>
+            </CardWrap>
     )
 }
 
 Card.propTypes = {
     title: PropTypes.string.isRequired,
+    cover: PropTypes.string.isRequired
 }
   
 Card.defaultProps = {
     title: '',
+    cover: ''
 }
 
 export default Card

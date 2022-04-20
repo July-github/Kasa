@@ -13,17 +13,13 @@ const StarsColor = styled.i`
 `
 
 function Stars({rating}){
-    let ratingNumber = Number(rating)
+    const ratingNumber = Number(rating)
     console.log(ratingNumber, rating)
+    const range = [1, 2, 3, 4, 5]
 
-    for (let i=0; i<ratingNumber; i++){
-    if(i > 0 && i<= 5){
-        return <StarsColor className='fas fa-star'></StarsColor>
-
-    }else{
-        while (i<5){
-        return <Star className='fas fa-star'></Star>}
-    }}
+    range.map((rang) => {
+        rang<=ratingNumber ? <StarsColor className='fas fa-star'></StarsColor> : <Star className='fas fa-star'></Star>
+    })
 }
 
 Stars.propTypes = {

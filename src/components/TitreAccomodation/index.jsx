@@ -3,8 +3,8 @@ import styled from 'styled-components'
 import Colors from '../../utils/style/Colors'
 import HostDefaultPicture from '../../assets/HostDefault_Picture.jpg'
 import Stars from '../Stars/index'
-import accomodations from '../../datas/logements.json'
 import { useParams } from 'react-router-dom'
+import accomodations from '../../datas/logements.json'
 
 
 const TitreAccomodationContainer = styled.div`
@@ -72,6 +72,7 @@ const TagsWrap = styled.div`
 `
 
 function TitreAccomodation({title, location, host, tags}){
+    const {id} = useParams() 
 
     return (
         <TitreAccomodationContainer>
@@ -88,6 +89,13 @@ function TitreAccomodation({title, location, host, tags}){
             <HostAccomodationContainer>
                 <AccomodationHote>{host.name}</AccomodationHote>
                 <AccomodationHoteImage src={host.picture} alt='Host'></AccomodationHoteImage>
+                {accomodations
+                .filter((accomodation) => accomodation.id === id)
+                .map((accomodation) => 
+                <Stars 
+                    key={accomodation.id}
+                    rating={accomodation.rating}
+                />)}
             </HostAccomodationContainer>
         </TitreAccomodationContainer>      
     )    

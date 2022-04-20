@@ -3,7 +3,7 @@ import { useNavigate, useParams } from 'react-router-dom'
 import TitreAccomodation from '../../components/TitreAccomodation/index'
 import Carrousel from '../../components/Carrousel'
 import { useState, useEffect } from 'react'
-import DropDetail from '../../components/Dropdown/index'
+import DropDetail from '../../components/DropdownHome/index'
 import styled from 'styled-components'
 
 const DetailContainer = styled.div`
@@ -18,6 +18,7 @@ function Accomodation(){
     const [accomodation, setAccomodation] = useState({})
     let isId = false
 
+    //The id doesn't exist
     useEffect(()=> {
         function getId(){
             accomodations.map((accomodation) => {
@@ -47,12 +48,12 @@ function Accomodation(){
                         host= {accomodation.host}
                         tags={accomodation.tags}
                     />
-                    <DetailContainer key={accomodation.id}>
-                        <DropDetail
+                    <DetailContainer>
+                        <DropDetail key={accomodation.description}
                             description={accomodation.description}
                             detailType='description'
                         />
-                        <DropDetail
+                        <DropDetail key={accomodation.equipments}
                             equipments={accomodation.equipments}
                             detailType='equipements'
                         />
