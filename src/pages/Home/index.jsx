@@ -1,9 +1,8 @@
 import Card from '../../components/Card/index'
 import styled from 'styled-components'
-import Logements from '../../datas/logements.json'
+import accomodations from '../../datas/logements.json'
 import HomeBack from '../../assets/Home_background.jpg'
 import Colors from '../../utils/style/Colors'
-import { useNavigate, useParams } from 'react-router-dom'
 import {Link} from 'react-router-dom'
 
 const CardContainer = styled.section`
@@ -56,28 +55,23 @@ const HeadImage = styled.img`
   border-radius: 25px;
   position: absolute;
   z-index:1;
-`
-
-const HeadImageTextWrap = styled.div`
-  postion: absolute;
-  z-index:2;
-  bottom: 50px;
-  height: 100%;
+  object-fit:cover;
 `
 
 const HeadImageText = styled.h1`
+  display: flex;
   color: ${Colors.secondary};
   font-size: 48px;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
   margin: 0;
+  position: absolute;
+  z-index:2;
+  width: 100%;
+  height: 100%;
 `
 
 function Home() {
-
-  /*let navigate = useNavigate();
-  function changeNavigate(Logement) {
-     navigate ('/Logement/{Logement.id}')
-    }*/
 
   return (
     <section>
@@ -85,18 +79,15 @@ function Home() {
         <HeadImageWrap>
           <HeadImage src={HomeBack} alt="Coast Image" />
         </HeadImageWrap>
-        <HeadImageTextWrap>
-          <HeadImageText>Chez vous, partout et ailleurs</HeadImageText>
-        </HeadImageTextWrap>
+        <HeadImageText>Chez vous, partout et ailleurs</HeadImageText>
       </HeadWrap>
       <CardContainer>
         <CardWrapper>
-          {Logements.map((Logement) => (
-            <Link to={`/Logement/${Logement.id}`}>
+          {accomodations.map((accomodation) => (
+            <Link key = {accomodation.id} to={`/accomodation/${accomodation.id}`}>
             <CardDiv>
               <Card 
-                key = {`${Logement.id}`}
-                title = {Logement.title}
+                title = {accomodation.title}
               />
             </CardDiv>
             </Link>

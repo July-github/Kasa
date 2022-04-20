@@ -26,6 +26,7 @@ const ErrorLinkHome = styled.div`
     flex-direction: column;
     justify-content: flex-start;
     height: 30%;
+    margin-top: 60px;
 `
 
 const ErrorSpan = styled.span`

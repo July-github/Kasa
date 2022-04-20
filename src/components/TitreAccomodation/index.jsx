@@ -2,46 +2,52 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Colors from '../../utils/style/Colors'
 import HostDefaultPicture from '../../assets/HostDefault_Picture.jpg'
+import Stars from '../Stars/index'
+import accomodations from '../../datas/logements.json'
+import { useParams } from 'react-router-dom'
 
-const TitreLogementContainer = styled.div`
+
+const TitreAccomodationContainer = styled.div`
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: top;
 `
 
-const LocationLogementContainer = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    width: 50%;
-`
-
-const HostLogementContainer = styled.div`
+const LocationAccomodationContainer = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: top;
+    width: 70%;
 `
 
-const LogementTitle = styled.h1`
+const HostAccomodationContainer = styled.div`
+    display: flex;
+    justify-content: space-between;
+`
+
+const AccomodationTitle = styled.h1`
     color: ${Colors.primary};
     font-size: 36px;
+    margin: 0;
 `
 
-const LogementLocation = styled.p`
+const AccomodationLocation = styled.p`
     color: ${Colors.primary};
     font-size: 18px;
 `
 
-const LogementHote = styled.p`
+const AccomodationHote = styled.p`
     color: ${Colors.primary};
     font-size: 18px;
     text-align: right;
+    margin-right: 15px;
 `
 
-const LogementHoteImage = styled.img`
+const AccomodationHoteImage = styled.img`
     width: 64px;
     height: 64px;
-    border-radius:50px;
+    border-radius: 50px;
     text-align: right;
 `
 
@@ -65,42 +71,31 @@ const TagsWrap = styled.div`
     margin-top:20px;
 `
 
-function TitreLogement({title, location, host, tags, rating}){
-
-    const ratingNumber = {rating}
-
-    const stars = function rate(){
-        if (ratingNumber > 0){
-            return (
-                <i class='fas fa-star'></i>
-            )
-        }else{
-            return ('no')
-        }
-    }
+function TitreAccomodation({title, location, host, tags}){
 
     return (
-        <TitreLogementContainer>
-            <LocationLogementContainer>
-                <LogementTitle>{title}</LogementTitle>
-                <LogementLocation>{location}</LogementLocation>
+        <TitreAccomodationContainer>
+            <LocationAccomodationContainer>
+                <AccomodationTitle>{title}</AccomodationTitle>
+                <AccomodationLocation>{location}</AccomodationLocation>
                 <TagsContainer>
                     {tags.map((tag) => (
-                        <TagsWrap>{tag}</TagsWrap>
+                        <TagsWrap key={tag}>{tag}</TagsWrap>
                     ))}
                 </TagsContainer>
 
-            </LocationLogementContainer>
-            <HostLogementContainer>
-                <LogementHote>{host.name}name</LogementHote>
-                <LogementHoteImage>{host.picture}</LogementHoteImage>
-                <div>{stars}</div>
-            </HostLogementContainer>
-        </TitreLogementContainer>      
+            </LocationAccomodationContainer>
+            <HostAccomodationContainer>
+                <AccomodationHote>{host.name}</AccomodationHote>
+                <AccomodationHoteImage src={host.picture} alt='Host'></AccomodationHoteImage>
+            </HostAccomodationContainer>
+        </TitreAccomodationContainer>      
     )    
 }
 
-TitreLogement.propTypes = {
+//<Stars key={accomodation.id} rating={accomodation.rating}/>
+
+TitreAccomodation.propTypes = {
     title: PropTypes.string.isRequired,
     location: PropTypes.string.isRequired,
     host: PropTypes.shape({
@@ -108,10 +103,9 @@ TitreLogement.propTypes = {
         picture: PropTypes.string.isRequired
     }),
     tags: PropTypes.arrayOf(PropTypes.string),
-    rating: PropTypes.number.isRequired,
 }
 
-TitreLogement.defaultProps = {
+TitreAccomodation.defaultProps = {
     title: '',
     location: '',
     host: {
@@ -119,7 +113,6 @@ TitreLogement.defaultProps = {
         picture: HostDefaultPicture,
     },
     tags: '',
-    rating: '0',
 }
 
-export default TitreLogement
+export default TitreAccomodation
