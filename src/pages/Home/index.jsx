@@ -1,9 +1,11 @@
 import Card from '../../components/Card/index'
 import styled from 'styled-components'
 import accomodations from '../../datas/logements.json'
-import HomeBack from '../../assets/Home_background.jpg'
+import Banner from '../../components/Banner/index'
 import Colors from '../../utils/style/Colors'
 import {Link} from 'react-router-dom'
+import HomeBack from '../../assets/Home_background.jpg'
+
 
 const CardContainer = styled.section`
   background-color: #F7F7F7;
@@ -35,52 +37,15 @@ const CardDiv = styled.div`
   }
 `
 
-const HeadWrap = styled.div`
-  width: 100%;
-  height: 223px;
-  margin-bottom: 40px;
-  position: relative;
-`
-
-const HeadImageWrap = styled.div`
-  width: 100%;
-  height: 100%;
-  border-radius: 25px;
-  position: absolute;
-`
-
-const HeadImage = styled.img`
-  width: 100%;
-  height: 100%;
-  border-radius: 25px;
-  position: absolute;
-  z-index:1;
-  object-fit:cover;
-`
-
-const HeadImageText = styled.h1`
-  display: flex;
-  color: ${Colors.secondary};
-  font-size: 48px;
-  align-items: center;
-  justify-content: center;
-  margin: 0;
-  position: absolute;
-  z-index:2;
-  width: 100%;
-  height: 100%;
-`
-
 function Home() {
 
   return (
     <section>
-      <HeadWrap>
-        <HeadImageWrap>
-          <HeadImage src={HomeBack} alt="Coast Image" />
-        </HeadImageWrap>
-        <HeadImageText>Chez vous, partout et ailleurs</HeadImageText>
-      </HeadWrap>
+      <Banner 
+        headText = 'Chez vous, partout et ailleurs'
+        headImage = {HomeBack}
+        headImageAlt = 'Mountains Image'
+      />
       <CardContainer>
         <CardWrapper>
           {accomodations.map((accomodation) => (

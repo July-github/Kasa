@@ -65,8 +65,4 @@ Carrousel.propTypes = {
     pictures : PropTypes.array.isRequired
 }
 
-Carrousel.defaultProps = {
-    pictures : ''
-}
-
 export default Carrousel

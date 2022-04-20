@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 import Colors from '../../utils/style/Colors'
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi';
+import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
 import PropTypes from 'prop-types'
-import { useState } from 'react';
+import { useState } from 'react'
 
 
-const DescriptionContainer = styled.div`
+const DropContainer = styled.div`
     display: flex;
     position: relative;
     flex-direction: column;
-    width: 45%;
+    width: 100%;
     z-index: 1;
     `
 
@@ -59,37 +59,43 @@ const DescriptionDetails = styled.div`
 `
 const EquipUl = styled.ul`
     padding: 0;
+    margin: 0;
 `
 
 const EquipLines = styled.li`
     list-style: none;
 `
 
-function DropDetail({description, equipments, detailType}){
+function Dropdown({description, equipments, detailType, detail}){
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
 
-    const Text = detailType === 'description' ? 'Description' : 'Équipements'
-    const TextDetails = detailType === 'description' ? description : (<EquipUl>{equipments.map((equipment) => <EquipLines>{equipment}</EquipLines>)}</EquipUl>)
+    const TextDetails = detail === 'string' 
+        ? <p>{description}</p> 
+        : <EquipUl>
+                {equipments.map((equipment) => <EquipLines key={equipment}>{equipment}</EquipLines>)}
+          </EquipUl>
 
     return (
-        <DescriptionContainer>
+        <DropContainer>
             <DropWrap>
-                {Text}
+                {detailType}
                 {isOpen ? <Icon onClick={toggle}><BiChevronUp /></Icon> : <Icon onClick={toggle}><BiChevronDown /></Icon>}
             </DropWrap>
             {isOpen && (<DescriptionDetails>{TextDetails}</DescriptionDetails>)}
-        </DescriptionContainer>
+        </DropContainer>
     )}
 
-DropDetail.propTypes = {
+Dropdown.propTypes = {
+    detailType: PropTypes.string.isRequired,
+    equipments: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
     description: PropTypes.string.isRequired,
-    equipments: PropTypes.arrayOf(PropTypes.string.isRequired)
+    detail: PropTypes.string.isRequired,
 }
 
-DropDetail.defaultProps = {
-    description: 'pas de description',
-    equipments: ''
+Dropdown.defaultProps = {
+    equipments: [],
+    description: '',
 }
 
-export default DropDetail
+export default Dropdown

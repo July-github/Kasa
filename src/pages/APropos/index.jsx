@@ -1,45 +1,49 @@
 import styled from 'styled-components'
 import AProposBack from '../../assets/APropos_background.jpg'
-import DropAPropos from '../../components/DropAPropos/index'
+import Dropdown from '../../components/Dropdown/index'
+import Banner from '../../components/Banner/index'
 
-const HeadImageAPropos = styled.img`
-width: 100%;
-height: 223px;
-margin-bottom: 40px;
-border-radius: 25px;
-`
 const DropDetailWrap = styled.div`
-  width: 100%;
+  width: 80%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  margin: auto;
 `
 
 function APropos() {
     return (
       <section>
-          <HeadImageAPropos src={AProposBack} alt="Mountains Image" />
+          <Banner 
+            headText = ''
+            headImage = {AProposBack}
+            headImageAlt = 'Coast Image'
+          />
           <DropDetailWrap>
-            <DropAPropos
+            <Dropdown
               key='Fiablité'
-              detailTitle='Fiabilité'
-              detailType='Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes.'
+              detailType='Fiabilité'
+              detail='string'
+              description='Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées  par nos équipes.'
             />
-            <DropAPropos
+            <Dropdown
               key='Respect'
-              detailTitle='Respect'
-              detailType='La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.'
+              detailType='Respect'
+              detail='string'
+              description='La bienveillance fait partie des valeurs fondatrices de Kasa. Tout comportement discriminatoire ou de perturbation du voisinage entraînera une exclusion de notre plateforme.'
             />
-            <DropAPropos
+            <Dropdown
               key='Service'
-              detailTitle='Service'
-              detailType="Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N'hésitez pas à nous contacter si vous avez la moindre question."
+              detailType='Service'
+              detail='string'
+              description="Nos équipes se tiennent à votre disposition pour vous fournir une expérience parfaite. N'hésitez pas à nous contacter si vous avez la moindre question."
             />
-            <DropAPropos
+            <Dropdown
               key='Responsabilité'
-              detailTitle='Responsabilité'
-              detailType="La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes."
+              detailType='Responsabilité'
+              detail='string'
+              description="La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes."
             />
           </DropDetailWrap>
       </section>

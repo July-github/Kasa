@@ -3,8 +3,6 @@ import styled from 'styled-components'
 import Colors from '../../utils/style/Colors'
 import HostDefaultPicture from '../../assets/HostDefault_Picture.jpg'
 import Stars from '../Stars/index'
-import { useParams } from 'react-router-dom'
-import accomodations from '../../datas/logements.json'
 
 
 const TitreAccomodationContainer = styled.div`
@@ -23,7 +21,9 @@ const LocationAccomodationContainer = styled.div`
 
 const HostAccomodationContainer = styled.div`
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: flex-end;
 `
 
 const AccomodationTitle = styled.h1`
@@ -70,57 +70,50 @@ const TagsWrap = styled.div`
     margin-right: 20px;
     margin-top:20px;
 `
+const HoteWrap = styled.div`
+    display: flex;
+`
 
-function TitreAccomodation({title, location, host, tags}){
-    const {id} = useParams() 
+function TitreAccomodation({accomodation}){
 
     return (
         <TitreAccomodationContainer>
             <LocationAccomodationContainer>
-                <AccomodationTitle>{title}</AccomodationTitle>
-                <AccomodationLocation>{location}</AccomodationLocation>
+                <AccomodationTitle>{accomodation.title}</AccomodationTitle>
+                <AccomodationLocation>{accomodation.location}</AccomodationLocation>
                 <TagsContainer>
-                    {tags.map((tag) => (
+                    {accomodation.tags.map((tag) => (
                         <TagsWrap key={tag}>{tag}</TagsWrap>
                     ))}
                 </TagsContainer>
 
             </LocationAccomodationContainer>
             <HostAccomodationContainer>
-                <AccomodationHote>{host.name}</AccomodationHote>
-                <AccomodationHoteImage src={host.picture} alt='Host'></AccomodationHoteImage>
-                {accomodations
-                .filter((accomodation) => accomodation.id === id)
-                .map((accomodation) => 
+                <HoteWrap>
+                    <AccomodationHote>{accomodation.host.name}</AccomodationHote>
+                    <AccomodationHoteImage src={accomodation.host.picture || HostDefaultPicture} alt='Host'></AccomodationHoteImage>
+                </HoteWrap>
+
                 <Stars 
-                    key={accomodation.id}
                     rating={accomodation.rating}
-                />)}
+                />
             </HostAccomodationContainer>
         </TitreAccomodationContainer>      
     )    
 }
 
-//<Stars key={accomodation.id} rating={accomodation.rating}/>
 
 TitreAccomodation.propTypes = {
-    title: PropTypes.string.isRequired,
-    location: PropTypes.string.isRequired,
-    host: PropTypes.shape({
-        name: PropTypes.string.isRequired,
-        picture: PropTypes.string.isRequired
-    }),
-    tags: PropTypes.arrayOf(PropTypes.string),
+    accomodation: PropTypes.shape({        
+        title: PropTypes.string.isRequired,
+        location: PropTypes.string.isRequired,
+        host: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            picture: PropTypes.string.isRequired
+        }),
+        tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    }).isRequired 
 }
 
-TitreAccomodation.defaultProps = {
-    title: '',
-    location: '',
-    host: {
-        name:'',
-        picture: HostDefaultPicture,
-    },
-    tags: '',
-}
 
 export default TitreAccomodation

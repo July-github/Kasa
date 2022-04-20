@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import Colors from '../../utils/style/Colors'
+import { IoStarSharp } from 'react-icons/io5'
 
 const Star = styled.i`
     color: #E3E3E3;
@@ -14,20 +15,19 @@ const StarsColor = styled.i`
 
 function Stars({rating}){
     const ratingNumber = Number(rating)
-    console.log(ratingNumber, rating)
     const range = [1, 2, 3, 4, 5]
-
-    range.map((rang) => {
-        rang<=ratingNumber ? <StarsColor className='fas fa-star'></StarsColor> : <Star className='fas fa-star'></Star>
-    })
+ 
+    return (
+        <div>
+            {range.map((rank) => (
+                rank<=ratingNumber ? <StarsColor key={rank}><IoStarSharp /></StarsColor> : <Star key={rank}><IoStarSharp /></Star>
+            ))}
+        </div>
+    )
 }
 
 Stars.propTypes = {
     rating: PropTypes.string.isRequired,
-}
-
-Stars.defaultProps = {
-    rating: '0',
 }
 
 export default Stars

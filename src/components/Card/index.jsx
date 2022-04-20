@@ -19,13 +19,25 @@ const CardCover = styled.img`
 `
 
 const CardWrap = styled.div`
+    display: flex;
     width: 100%;
     height: 100%
+`
+
+const CardOpacity = styled.div`
+    width: 100%;
+    height: 100%;
+    background: rgb(123,42,44);
+    background: linear-gradient(0deg, rgba(123,42,44,0.8) 0%, rgba(0,255,255,0) 20%);
+    opacity: 0.3;
+    border-radius: 10px;
+    position: absolute;
 `
 
 function Card({title, cover}){
     return(
             <CardWrap>
+                <CardOpacity></CardOpacity>
                 <CardCover src={cover} />
                 <CardTitle>
                     {title}
@@ -37,11 +49,6 @@ function Card({title, cover}){
 Card.propTypes = {
     title: PropTypes.string.isRequired,
     cover: PropTypes.string.isRequired
-}
-  
-Card.defaultProps = {
-    title: '',
-    cover: ''
 }
 
 export default Card
