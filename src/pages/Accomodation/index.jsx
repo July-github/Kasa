@@ -1,6 +1,6 @@
-import accomodations from '../../datas/logements.json'
+import accomodations from '../../datas/accomodations.json'
 import { useNavigate, useParams } from 'react-router-dom'
-import TitreAccomodation from '../../components/TitreAccomodation/index'
+import TitleAccomodation from '../../components/TitleAccomodation/index'
 import Carrousel from '../../components/Carrousel'
 import { useState, useEffect } from 'react'
 import Dropdown from '../../components/Dropdown/index'
@@ -10,35 +10,32 @@ const DetailContainer = styled.div`
     display: flex;
     justify-content: space-between;
     width: 100%;
+
+    @media (max-width: 667px) { 
+        flex-direction: column;
+    } 
 `
 
 const DropWrap = styled.div`
     width: 45%;
+
+    @media (max-width: 667px) { 
+        width: 100%;
+    } 
 `
 
 const DropWrapper = styled.div`
     width: 45%;
+
+    @media (max-width: 667px) { 
+        width: 100%;
+    } 
 `
 
 function Accomodation(){
     const {id} = useParams() 
     const navigate = useNavigate()
     const [accomodation, setAccomodation] = useState()
-    // let isId = false
-
-    //The id doesn't exist
-    // useEffect(()=> {
-    //     function getId(){
-    //         accomodations.forEach((accomodation) => {
-    //             if(accomodation.id === id){
-    //                  isId = true
-    //             }
-    //         })
-    //     }
-    //     getId();
-    //     isId ? setAccomodation(accomodation) : navigate('/Error');
-
-    // }, [])
 
     useEffect(()=> {
         const currentAccomodation = accomodations.find((accomodation) => accomodation.id === id)
@@ -58,13 +55,12 @@ function Accomodation(){
             <Carrousel
                 pictures={accomodation.pictures}
             />
-            <TitreAccomodation
+            <TitleAccomodation
                 accomodation={accomodation}
             />
             <DetailContainer>
                 <DropWrap>
                     <Dropdown 
-                        key={accomodation.description}
                         description={accomodation.description}
                         detailType='Description'
                         detail='string'
@@ -72,7 +68,6 @@ function Accomodation(){
                 </DropWrap>
                 <DropWrapper>
                     <Dropdown 
-                        key={accomodation.equipments}
                         equipments={accomodation.equipments}
                         detailType='Equipements'
                         detail='list'

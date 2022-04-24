@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import APropos from './pages/APropos/index'
+import About from './pages/About/index'
 import Header from './components/Header/index'
 import GlobalStyle from './utils/style/GlobalStyle'
 import Error from './pages/Error404/index'
@@ -18,11 +18,11 @@ root.render(
             <Header/>
             <Routes>
                 <Route path="/" element={<Home/>} />
-                <Route path="/APropos" element={<APropos/>} />
+                <Route path="/About" element={<About/>} />
                 <Route path="/Accomodation/:id" element={<Accomodation/>} />
                 <Route path="/*" element={<Error/>} />
             </Routes>
             <Footer/>
         </Router>
-    </React.StrictMode>,
+    </React.StrictMode>
 )

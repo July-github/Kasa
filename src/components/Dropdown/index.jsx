@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import Colors from '../../utils/style/Colors'
-import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
+import { RiArrowDownSLine, RiArrowUpSLine } from 'react-icons/ri'
 import PropTypes from 'prop-types'
 import { useState } from 'react'
 
@@ -11,7 +11,7 @@ const DropContainer = styled.div`
     flex-direction: column;
     width: 100%;
     z-index: 1;
-    `
+`
 
 const DropWrap = styled.div`
     display: flex;  
@@ -26,18 +26,30 @@ const DropWrap = styled.div`
     justify-content: center;
     align-items: center;
     z-index: 2;
+
+    @media (max-width: 667px) { 
+        height: 30px;
+        font-size: 13px; 
+        border-radius: 5px;
+    } 
 `
 
 const Icon = styled.div`
     position: absolute;
-    top : 50px;
-    left: 90%;
-    font-size: 30px;
+    top : 45px;
+    left: 87%;
+    font-size: 45px;
     color: ${Colors.secondary};
     z-index: 3;
     &:hover{
         cursor: pointer;
     }
+
+    @media (max-width: 667px) { 
+        font-size: 30px;
+        top : 40px;
+        left: 90%;
+    } 
 `
 
 const DescriptionDetails = styled.div`
@@ -56,7 +68,16 @@ const DescriptionDetails = styled.div`
     z-index: 0;
     display: flex;
     align-items: center;
+
+    @media (max-width: 667px) { 
+        font-size: 12px;
+        min-height: 143px;
+        border-radius: 5px;
+        padding: 15px 15px;
+        line-height: 17px;
+    } 
 `
+
 const EquipUl = styled.ul`
     padding: 0;
     margin: 0;
@@ -71,7 +92,7 @@ function Dropdown({description, equipments, detailType, detail}){
     const toggle = () => setIsOpen(!isOpen)
 
     const TextDetails = detail === 'string' 
-        ? <p>{description}</p> 
+        ? <p>{description}</p>
         : <EquipUl>
                 {equipments.map((equipment) => <EquipLines key={equipment}>{equipment}</EquipLines>)}
           </EquipUl>
@@ -80,7 +101,7 @@ function Dropdown({description, equipments, detailType, detail}){
         <DropContainer>
             <DropWrap>
                 {detailType}
-                {isOpen ? <Icon onClick={toggle}><BiChevronUp /></Icon> : <Icon onClick={toggle}><BiChevronDown /></Icon>}
+                {isOpen ? <Icon onClick={toggle}><RiArrowUpSLine /></Icon> : <Icon onClick={toggle}><RiArrowDownSLine /></Icon>}
             </DropWrap>
             {isOpen && (<DescriptionDetails>{TextDetails}</DescriptionDetails>)}
         </DropContainer>

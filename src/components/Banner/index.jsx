@@ -7,6 +7,11 @@ const HeadWrap = styled.div`
     height: 223px;
     margin-bottom: 40px;
     position: relative;
+
+    @media (max-width: 667px) { 
+        height: 111px;
+        margin-bottom: 10px;
+    }
 `
 
 const HeadImageWrap = styled.div`
@@ -14,6 +19,10 @@ const HeadImageWrap = styled.div`
     height: 100%;
     border-radius: 25px;
     position: absolute;
+
+    @media (max-width: 667px) { 
+        border-radius: 10px;
+    }
 `
 
 const HeadImage = styled.img`
@@ -23,6 +32,10 @@ const HeadImage = styled.img`
     position: absolute;
     z-index:1;
     object-fit:cover;
+
+    @media (max-width: 667px) { 
+        border-radius: 10px;
+    }
 `
 
 const HeadOpacity = styled.div`
@@ -33,6 +46,10 @@ const HeadOpacity = styled.div`
     opacity: 0.3;
     position: absolute;
     z-index: 2;
+
+    @media (max-width: 667px) { 
+        border-radius: 10px;
+    }
 `
 
 const HeadImageText = styled.h1`
@@ -40,12 +57,21 @@ const HeadImageText = styled.h1`
     color: ${Colors.secondary};
     font-size: 48px;
     align-items: center;
-    justify-content: center;
     margin: 0;
     position: absolute;
     z-index:2;
     width: 100%;
     height: 100%;
+    justify-content: center;
+
+    @media (max-width: 667px) { 
+        font-size: 24px;
+        justify-content: flex-start;
+        margin-left: 20px;
+      }
+    @media (max-width: 400px) { 
+        margin-left: 5px;
+    }
 `
 
 function Banner({headText, headImage, headImageAlt}){

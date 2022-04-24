@@ -2,13 +2,32 @@ import {useState} from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import Colors from '../../utils/style/Colors'
-import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai';
+import { AiOutlineLeft, AiOutlineRight } from 'react-icons/ai'
+import defaultPicture from '../../assets/DefaultPicture.png'
 
 const CarrouselContainer = styled.div`
     display: flex;
     width: 100%;
     position: relative;
+`
+
+const CarrouselOnlyPicture = styled.div`
+    display: flex;
+    width: 100%;
+    position: relative;
     margin-bottom: 40px;
+`
+
+const CarrouselNoPictures = styled.img`
+    height: 415px;
+    border-radius: 25px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+
+    @media (max-width: 667px) { 
+        height: 255px;
+    } 
 `
 
 const CarrouselPictures = styled.img`
@@ -18,7 +37,12 @@ const CarrouselPictures = styled.img`
     object-fit: cover;
     position: relative;
     z-index: 1;
+
+    @media (max-width: 667px) { 
+        height: 255px;
+    } 
 `
+
 const CarrouselArrowLeft = styled.i`
     color: ${Colors.secondary};
     font-size: 120px;
@@ -29,6 +53,12 @@ const CarrouselArrowLeft = styled.i`
     &:hover{
         cursor: pointer;
     }
+
+    @media (max-width: 667px) { 
+        font-size: 40px;
+        left: 5px;
+        top: 100px;
+    } 
 `
 
 const CarrouselArrowRight = styled.i`
@@ -41,8 +71,13 @@ const CarrouselArrowRight = styled.i`
     &:hover{
         cursor: pointer;
     }
-`
 
+    @media (max-width: 667px) { 
+        font-size: 40px;
+        right: 5px;
+        top: 100px;
+    } 
+`
 
 function Carrousel({pictures}){
     const [currentPicture, setCurrentPicture] = useState(0)
@@ -51,14 +86,20 @@ function Carrousel({pictures}){
     const switchNextPicture = () => { setCurrentPicture(currentPicture  === length - 1 ? 0 : currentPicture + 1)}
     const switchPrevtPicture = () => { setCurrentPicture(currentPicture  === 0 ? length - 1 : currentPicture - 1)}
 
-    try{
     return (
-        <CarrouselContainer>
-            <CarrouselArrowLeft onClick={switchPrevtPicture}><AiOutlineLeft /></CarrouselArrowLeft>
+        <CarrouselOnlyPicture>
+            {length === 0 ? <CarrouselNoPictures src = {defaultPicture} alt='accomodation'></CarrouselNoPictures> :
+            length === 1 ? 
             <CarrouselPictures src = {pictures[currentPicture]} alt='accomodation'></CarrouselPictures>
-            <CarrouselArrowRight onClick={switchNextPicture}><AiOutlineRight /></CarrouselArrowRight>
-        </CarrouselContainer>
-    )}catch{return 'Pas de photo disponible'}
+            :
+            <CarrouselContainer>
+                <CarrouselArrowLeft onClick={switchPrevtPicture}><AiOutlineLeft /></CarrouselArrowLeft>
+                <CarrouselPictures src = {pictures[currentPicture]} alt='accomodation'></CarrouselPictures>
+                <CarrouselArrowRight onClick={switchNextPicture}><AiOutlineRight /></CarrouselArrowRight>
+            </CarrouselContainer>
+            }
+        </CarrouselOnlyPicture>
+    )
 }
 
 Carrousel.propTypes = {

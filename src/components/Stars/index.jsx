@@ -6,11 +6,19 @@ import { IoStarSharp } from 'react-icons/io5'
 const Star = styled.i`
     color: #E3E3E3;
     font-size: 30px;
+    
+    @media (max-width: 667px) { 
+        font-size: 20px;
+    }
 `
 
 const StarsColor = styled.i`
     color: ${Colors.primary};
     font-size: 30px;
+
+    @media (max-width: 667px) { 
+        font-size: 20px;
+    }
 `
 
 function Stars({rating}){
@@ -27,7 +35,11 @@ function Stars({rating}){
 }
 
 Stars.propTypes = {
-    rating: PropTypes.string.isRequired,
+    rating: PropTypes.string,
+}
+
+Stars.defaultProps = {
+    rating: '0'
 }
 
 export default Stars

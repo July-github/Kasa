@@ -36,13 +36,16 @@ const CardOpacity = styled.div`
 
 function Card({title, cover}){
     return(
-            <CardWrap>
-                <CardOpacity></CardOpacity>
-                <CardCover src={cover} />
-                <CardTitle>
-                    {title}
-                </CardTitle>
-            </CardWrap>
+        <CardWrap>
+            <CardOpacity></CardOpacity>
+            {cover? 
+            <CardCover src={cover} />
+            : null
+            }
+            <CardTitle>
+                {title}
+            </CardTitle>
+        </CardWrap>
     )
 }
 

@@ -5,10 +5,14 @@ import HostDefaultPicture from '../../assets/HostDefault_Picture.jpg'
 import Stars from '../Stars/index'
 
 
-const TitreAccomodationContainer = styled.div`
+const TitleAccomodationContainer = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: top;
+
+    @media (max-width: 667px) { 
+        flex-direction: column;
+    }
 `
 
 const LocationAccomodationContainer = styled.div`
@@ -24,17 +28,30 @@ const HostAccomodationContainer = styled.div`
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-end;
+
+    @media (max-width: 667px) { 
+        flex-direction: row-reverse;
+        margin-top: 15px;
+    }
 `
 
 const AccomodationTitle = styled.h1`
     color: ${Colors.primary};
     font-size: 36px;
     margin: 0;
+
+    @media (max-width: 667px) { 
+        font-size: 18px;
+    }
 `
 
 const AccomodationLocation = styled.p`
     color: ${Colors.primary};
     font-size: 18px;
+
+    @media (max-width: 667px) { 
+        font-size: 14px;
+    }
 `
 
 const AccomodationHote = styled.p`
@@ -42,6 +59,10 @@ const AccomodationHote = styled.p`
     font-size: 18px;
     text-align: right;
     margin-right: 15px;
+
+    @media (max-width: 667px) { 
+        font-size: 12px;
+    }
 `
 
 const AccomodationHoteImage = styled.img`
@@ -49,6 +70,11 @@ const AccomodationHoteImage = styled.img`
     height: 64px;
     border-radius: 50px;
     text-align: right;
+
+    @media (max-width: 667px) { 
+        width: 32px;
+        height: 32px;
+    }
 `
 
 const TagsContainer = styled.div`
@@ -58,6 +84,9 @@ const TagsContainer = styled.div`
 `
 
 const TagsWrap = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: ${Colors.primary};
     color: ${Colors.secondary};
     border-radius: 15px;
@@ -65,19 +94,30 @@ const TagsWrap = styled.div`
     width: auto;
     min-width: 115px;
     height: 20px;
-    text-align: center;
     align-content: center;
     margin-right: 20px;
     margin-top:20px;
+    font-size: 14px;
+
+    @media (max-width: 667px) { 
+        width: auto;
+        min-width: 84px;
+        height: 18px;
+        margin-top: 10px;
+        border-radius: 5px;
+        padding: 5px 25px;
+        font-size: 10px;
+    }
 `
+
 const HoteWrap = styled.div`
     display: flex;
 `
 
-function TitreAccomodation({accomodation}){
+function TitleAccomodation({accomodation}){
 
     return (
-        <TitreAccomodationContainer>
+        <TitleAccomodationContainer>
             <LocationAccomodationContainer>
                 <AccomodationTitle>{accomodation.title}</AccomodationTitle>
                 <AccomodationLocation>{accomodation.location}</AccomodationLocation>
@@ -98,12 +138,11 @@ function TitreAccomodation({accomodation}){
                     rating={accomodation.rating}
                 />
             </HostAccomodationContainer>
-        </TitreAccomodationContainer>      
+        </TitleAccomodationContainer>      
     )    
 }
 
-
-TitreAccomodation.propTypes = {
+TitleAccomodation.propTypes = {
     accomodation: PropTypes.shape({        
         title: PropTypes.string.isRequired,
         location: PropTypes.string.isRequired,
@@ -115,5 +154,4 @@ TitreAccomodation.propTypes = {
     }).isRequired 
 }
 
-
-export default TitreAccomodation
+export default TitleAccomodation
