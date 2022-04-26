@@ -1,6 +1,6 @@
 import accomodations from '../../datas/accomodations.json'
 import { useNavigate, useParams } from 'react-router-dom'
-import TitleAccomodation from '../../components/TitleAccomodation/index'
+import TitleAccomodation from './TitleAccomodation/index'
 import Carrousel from '../../components/Carrousel'
 import { useState, useEffect } from 'react'
 import Dropdown from '../../components/Dropdown/index'
@@ -32,6 +32,15 @@ const DropWrapper = styled.div`
     } 
 `
 
+const EquipUl = styled.ul`
+    padding: 0;
+    margin: 0;
+`
+
+const EquipLines = styled.li`
+    list-style: none;
+`
+
 function Accomodation(){
     const {id} = useParams() 
     const navigate = useNavigate()
@@ -61,17 +70,17 @@ function Accomodation(){
             <DetailContainer>
                 <DropWrap>
                     <Dropdown 
-                        description={accomodation.description}
                         detailType='Description'
-                        detail='string'
-                    />
+                    >{accomodation.description}</Dropdown>
                 </DropWrap>
                 <DropWrapper>
                     <Dropdown 
-                        equipments={accomodation.equipments}
                         detailType='Equipements'
-                        detail='list'
-                    />
+                        >
+                            <EquipUl>
+                                {accomodation.equipments.map((equipment) => <EquipLines key={equipment}>{equipment}</EquipLines>)}
+                            </EquipUl>
+                    </Dropdown>
                 </DropWrapper>
             </DetailContainer>
         </section>      

@@ -1,8 +1,8 @@
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import Colors from '../../utils/style/Colors'
-import HostDefaultPicture from '../../assets/HostDefault_Picture.jpg'
-import Stars from '../Stars/index'
+import Colors from '../../../utils/style/Colors'
+import HostDefaultPicture from '../../../assets/HostDefault_Picture.jpg'
+import Stars from '../../../components/Stars/index'
 
 
 const TitleAccomodationContainer = styled.div`

@@ -84,17 +84,17 @@ function Carrousel({pictures}){
     const length = pictures.length
 
     const switchNextPicture = () => { setCurrentPicture(currentPicture  === length - 1 ? 0 : currentPicture + 1)}
-    const switchPrevtPicture = () => { setCurrentPicture(currentPicture  === 0 ? length - 1 : currentPicture - 1)}
+    const switchPrevPicture = () => { setCurrentPicture(currentPicture  === 0 ? length - 1 : currentPicture - 1)}
 
     return (
         <CarrouselOnlyPicture>
-            {length === 0 ? <CarrouselNoPictures src = {defaultPicture} alt='accomodation'></CarrouselNoPictures> :
+            {length === 0 ? <CarrouselNoPictures src = {defaultPicture} alt='carrouselImage'></CarrouselNoPictures> :
             length === 1 ? 
-            <CarrouselPictures src = {pictures[currentPicture]} alt='accomodation'></CarrouselPictures>
+            <CarrouselPictures src = {pictures[currentPicture]} alt='carrouselImage'></CarrouselPictures>
             :
             <CarrouselContainer>
-                <CarrouselArrowLeft onClick={switchPrevtPicture}><AiOutlineLeft /></CarrouselArrowLeft>
-                <CarrouselPictures src = {pictures[currentPicture]} alt='accomodation'></CarrouselPictures>
+                <CarrouselArrowLeft onClick={switchPrevPicture}><AiOutlineLeft /></CarrouselArrowLeft>
+                <CarrouselPictures src = {pictures[currentPicture]} alt='carrouselImage'></CarrouselPictures>
                 <CarrouselArrowRight onClick={switchNextPicture}><AiOutlineRight /></CarrouselArrowRight>
             </CarrouselContainer>
             }

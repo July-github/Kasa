@@ -64,11 +64,14 @@ const HeadImageText = styled.h1`
     height: 100%;
     justify-content: center;
 
+    @media (max-width: 812px) { 
+        margin-left: 20px;
+    }
     @media (max-width: 667px) { 
         font-size: 24px;
         justify-content: flex-start;
         margin-left: 20px;
-      }
+    }
     @media (max-width: 400px) { 
         margin-left: 5px;
     }

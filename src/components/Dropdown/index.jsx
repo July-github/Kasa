@@ -45,6 +45,10 @@ const Icon = styled.div`
         cursor: pointer;
     }
 
+    @media (max-width: 963px) { 
+        top : 43px;
+        left: 82%;
+    } 
     @media (max-width: 667px) { 
         font-size: 30px;
         top : 40px;
@@ -78,24 +82,9 @@ const DescriptionDetails = styled.div`
     } 
 `
 
-const EquipUl = styled.ul`
-    padding: 0;
-    margin: 0;
-`
-
-const EquipLines = styled.li`
-    list-style: none;
-`
-
-function Dropdown({description, equipments, detailType, detail}){
+function Dropdown({detailType, children}){
     const [isOpen, setIsOpen] = useState(false)
     const toggle = () => setIsOpen(!isOpen)
-
-    const TextDetails = detail === 'string' 
-        ? <p>{description}</p>
-        : <EquipUl>
-                {equipments.map((equipment) => <EquipLines key={equipment}>{equipment}</EquipLines>)}
-          </EquipUl>
 
     return (
         <DropContainer>
@@ -103,20 +92,13 @@ function Dropdown({description, equipments, detailType, detail}){
                 {detailType}
                 {isOpen ? <Icon onClick={toggle}><RiArrowUpSLine /></Icon> : <Icon onClick={toggle}><RiArrowDownSLine /></Icon>}
             </DropWrap>
-            {isOpen && (<DescriptionDetails>{TextDetails}</DescriptionDetails>)}
+            {isOpen && (<DescriptionDetails>{children}</DescriptionDetails>)}
         </DropContainer>
     )}
 
 Dropdown.propTypes = {
     detailType: PropTypes.string.isRequired,
-    equipments: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
-    description: PropTypes.string.isRequired,
-    detail: PropTypes.string.isRequired,
-}
-
-Dropdown.defaultProps = {
-    equipments: [],
-    description: '',
+    children: PropTypes.node.isRequired
 }
 
 export default Dropdown
