@@ -12,14 +12,13 @@ const BodyGlobalStyle = createGlobalStyle`
 
         @media (max-width: 1019px) { 
             margin: 15px 60px;
-        } 
-
+        }
         @media (max-width: 667px) { 
             margin: 15px 30px;
-        } 
+        }
         @media (max-width: 320px) { 
             margin: auto;
-        } 
+        }
     }
     
     body{

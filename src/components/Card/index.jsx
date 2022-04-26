@@ -38,8 +38,7 @@ function Card({title, cover}){
     return(
         <CardWrap>
             <CardOpacity></CardOpacity>
-            {cover? 
-            <CardCover src={cover} />
+            {cover? <CardCover src={cover} />
             : null
             }
             <CardTitle>

@@ -13,7 +13,7 @@ root.render(
         <Router>
             <GlobalStyle/>
             <Header/>
-            <Navigation />            
+            <Navigation/>            
             <Footer/>
         </Router>
     </React.StrictMode>

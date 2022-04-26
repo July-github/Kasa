@@ -28,7 +28,8 @@ function Stars({rating}){
     return (
         <div>
             {range.map((rank) => (
-                rank<=ratingNumber ? <StarsColor key={rank}><IoStarSharp /></StarsColor> : <Star key={rank}><IoStarSharp /></Star>
+                rank<=ratingNumber ? <StarsColor key={rank}><IoStarSharp /></StarsColor> 
+                : <Star key={rank}><IoStarSharp /></Star>
             ))}
         </div>
     )
