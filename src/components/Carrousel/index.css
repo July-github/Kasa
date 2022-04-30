@@ -1,0 +1,78 @@
+
+.carrouselContainer {
+    display: flex;
+    width: 100%;
+    position: relative;
+}
+
+.carrouselOnlyPicture {
+    display: flex;
+    width: 100%;
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.carrouselNoPictures {
+    height: 415px;
+    border-radius: 25px;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+}
+@media screen and (max-width: 667px) { 
+    .carrouselNoPictures {
+        height: 255px;
+    } 
+}
+
+.carrouselPictures {
+    height: 415px;
+    border-radius: 25px;
+    width: 100%;
+    object-fit: cover;
+    position: relative;
+    z-index: 1;
+}
+@media screen and (max-width: 667px) { 
+    .carrouselPictures {
+        height: 255px;
+    } 
+}
+
+.carrouselArrowLeft {
+    color: #FFFFFF;
+    font-size: 120px;
+    position: absolute;
+    z-index: 2;
+    left: 20px;
+    top: 145px;
+}
+.carrouselArrowLeft:hover{
+        cursor: pointer;
+}
+@media screen and (max-width: 667px) { 
+    .carrouselArrowLeft {
+        font-size: 40px;
+        left: 5px;
+        top: 100px;
+    } 
+}
+
+.carrouselArrowRight {
+    color: #FFFFFF;
+    font-size: 120px;
+    position: absolute;
+    z-index: 2;
+    right: 20px;
+    top: 145px;
+}
+.carrouselArrowRight:hover{
+        cursor: pointer;
+}
+@media screen and (max-width: 667px) { 
+    .carrouselArrowRight {
+        font-size: 40px;
+        right: 5px;
+        top: 100px;
+    } 
+}

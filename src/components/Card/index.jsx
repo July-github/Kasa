@@ -1,50 +1,17 @@
-import styled from 'styled-components'
-import Colors from '../../utils/style/Colors'
 import PropTypes from 'prop-types'
-
-const CardTitle = styled.h2`
-    color: ${Colors.secondary};
-    font-size: 18px;
-    text-align: left;
-    padding-left: 15px;
-    position: absolute;
-    bottom: 0;
-`
-
-const CardCover = styled.img`
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    object-fit:cover;
-`
-
-const CardWrap = styled.div`
-    display: flex;
-    width: 100%;
-    height: 100%
-`
-
-const CardOpacity = styled.div`
-    width: 100%;
-    height: 100%;
-    background: rgb(123,42,44);
-    background: linear-gradient(0deg, rgba(123,42,44,0.8) 0%, rgba(0,255,255,0) 20%);
-    opacity: 0.3;
-    border-radius: 10px;
-    position: absolute;
-`
+import "../Card/index.css"
 
 function Card({title, cover}){
     return(
-        <CardWrap>
-            <CardOpacity></CardOpacity>
-            {cover? <CardCover src={cover} />
+        <div className='cardWrap'>
+            <div className='cardOpacity'></div>
+            {cover? <img className='cardCover' src={cover} alt='cover'/>
             : null
             }
-            <CardTitle>
+            <h2 className='cardTitle'>
                 {title}
-            </CardTitle>
-        </CardWrap>
+            </h2>
+        </div>
     )
 }
 

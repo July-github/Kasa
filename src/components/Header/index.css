@@ -1,0 +1,38 @@
+.homeLogo {
+    height: 68px;
+}
+@media screen and (max-width: 667px) { 
+    .homeLogo {
+        height: 47px;
+    }
+}
+
+.headerContainer {
+    height: 68px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 40px;
+}
+@media screen and (max-width: 667px) { 
+    .headerContainer {
+        padding-bottom: 10px;
+    }
+}
+
+.navContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 260px;
+    font-size: 24px;
+    color: #FF6060;
+    font-weight: 500;
+}
+@media screen and (max-width: 667px) { 
+    .navContainer {
+        font-size: 12px;
+        text-transform: uppercase;
+        width: 45%;
+    }
+}

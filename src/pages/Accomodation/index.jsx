@@ -4,42 +4,7 @@ import TitleAccomodation from './TitleAccomodation/index'
 import Carrousel from '../../components/Carrousel'
 import { useState, useEffect } from 'react'
 import Dropdown from '../../components/Dropdown/index'
-import styled from 'styled-components'
-
-const DetailContainer = styled.div`
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
-    @media (max-width: 667px) { 
-        flex-direction: column;
-    } 
-`
-
-const DropWrap = styled.div`
-    width: 45%;
-
-    @media (max-width: 667px) { 
-        width: 100%;
-    } 
-`
-
-const DropWrapper = styled.div`
-    width: 45%;
-
-    @media (max-width: 667px) { 
-        width: 100%;
-    } 
-`
-
-const EquipUl = styled.ul`
-    padding: 0;
-    margin: 0;
-`
-
-const EquipLines = styled.li`
-    list-style: none;
-`
+import "../Accomodation/index.css"
 
 function Accomodation(){
     const {id} = useParams() 
@@ -67,22 +32,22 @@ function Accomodation(){
             <TitleAccomodation
                 accomodation={accomodation}
             />
-            <DetailContainer>
-                <DropWrap>
+            <div className='detailContainer'>
+                <div className='dropBox'>
                     <Dropdown 
                         detailType='Description'
                     >{accomodation.description}</Dropdown>
-                </DropWrap>
-                <DropWrapper>
+                </div>
+                <div className='dropWrapper'>
                     <Dropdown 
                         detailType='Equipements'
                         >
-                            <EquipUl>
-                                {accomodation.equipments.map((equipment) => <EquipLines key={equipment}>{equipment}</EquipLines>)}
-                            </EquipUl>
+                            <ul className='equipUl'>
+                                {accomodation.equipments.map((equipment) => <li className='equipLines' key={equipment}>{equipment}</li>)}
+                            </ul>
                     </Dropdown>
-                </DropWrapper>
-            </DetailContainer>
+                </div>
+            </div>
         </section>      
     )    
 }

@@ -1,0 +1,19 @@
+.star {
+    color: #E3E3E3;
+    font-size: 30px;
+}
+@media screen and (max-width: 667px) { 
+    .star {
+        font-size: 20px;
+    }
+}
+
+.starsColor {
+    color: #FF6060;
+    font-size: 30px;
+}
+@media screen and (max-width: 667px) { 
+    .starsColor {
+        font-size: 20px;
+    }
+}

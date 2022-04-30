@@ -1,0 +1,31 @@
+.cardTitle {
+    color: #FFFFFF;
+    font-size: 18px;
+    text-align: left;
+    padding-left: 15px;
+    position: absolute;
+    bottom: 0;
+}
+
+.cardCover {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit:cover;
+}
+
+.cardWrap {
+    display: flex;
+    width: 100%;
+    height: 100%
+}
+
+.cardOpacity {
+    width: 100%;
+    height: 100%;
+    background: rgb(123,42,44);
+    background: linear-gradient(0deg, rgba(123,42,44,0.8) 0%, rgba(0,255,255,0) 20%);
+    opacity: 0.3;
+    border-radius: 10px;
+    position: absolute;
+}

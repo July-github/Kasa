@@ -1,21 +1,7 @@
-import styled from 'styled-components'
+import "../About/index.css"
 import AboutBack from '../../assets/About_background.jpg'
 import Dropdown from '../../components/Dropdown/index'
 import Banner from '../../components/Banner/index'
-
-const DropDetailWrap = styled.div`
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
-    margin: auto;
-
-    @media (max-width: 667px) { 
-      width: 100%;
-      font-weight: 400;
-    } 
-`
 
 function About() {
 
@@ -26,7 +12,7 @@ function About() {
                 headImage = {AboutBack}
                 headImageAlt = 'Coast Image'
               />
-            <DropDetailWrap>
+            <div className="dropDetailWrap">
                 <Dropdown
                     key='Fiablité'
                     detailType='Fiabilité'
@@ -47,7 +33,7 @@ function About() {
                     detailType='Responsabilité'
                 >La sécurité est la priorité de Kasa. Aussi bien pour nos hôtes que pour les voyageurs, chaque logement correspond aux critères de sécurité établis par nos services. En laissant une note aussi bien à l'hôte qu'au locataire, cela permet à nos équipes de vérifier que les standards sont bien respectés. Nous organisons également des ateliers sur la sécurité domestique pour nos hôtes.
                 </Dropdown>
-            </DropDetailWrap>
+            </div>
         </section>
     );
   }

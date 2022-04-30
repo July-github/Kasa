@@ -1,0 +1,83 @@
+.headWrap {
+    width: 100%;
+    height: 223px;
+    margin-bottom: 40px;
+    position: relative;
+}
+@media screen and (max-width: 667px) { 
+    .headWrap {
+        height: 111px;
+        margin-bottom: 10px;
+    }
+}
+
+.headImageWrap {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    position: absolute;
+}
+@media screen and (max-width: 667px) { 
+    .headImageWrap{
+        border-radius: 10px;
+    }
+}
+
+.headImage {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    position: absolute;
+    z-index:1;
+    object-fit:cover;
+}
+@media screen and (max-width: 667px) { 
+    .headImage {
+        border-radius: 10px;
+    }
+}
+
+.headOpacity {
+    width: 100%;
+    height: 100%;
+    border-radius: 25px;
+    background: #000000;
+    opacity: 0.3;
+    position: absolute;
+    z-index: 2;
+}
+@media screen and (max-width: 667px) { 
+    .headOpacity {
+        border-radius: 10px;
+    }
+}
+
+.headImageText {
+    display: flex;
+    color: #FFFFFF;
+    font-size: 48px;
+    align-items: center;
+    margin: 0;
+    position: absolute;
+    z-index:2;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+@media screen and  (max-width: 812px) { 
+    .headImageText {
+        margin-left: 20px;
+    }
+}
+@media screen and  (max-width: 667px) { 
+    .headImageText {
+        font-size: 24px;
+        justify-content: flex-start;
+        margin-left: 20px;
+    }
+}
+@media screen and  (max-width: 400px) { 
+    .headImageText {
+        margin-left: 5px;
+    }
+}

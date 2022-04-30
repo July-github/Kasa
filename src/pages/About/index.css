@@ -1,0 +1,14 @@
+.dropDetailWrap {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: auto;
+}
+@media screen and (max-width: 667px) { 
+    .dropDetailWrap {
+      width: 100%;
+      font-weight: 400;
+    } 
+}

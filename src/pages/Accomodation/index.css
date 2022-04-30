@@ -1,0 +1,28 @@
+.detailContainer {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+@media screen and (max-width: 667px) { 
+    .detailContainer {
+        flex-direction: column;
+    } 
+}
+
+.dropBox, .dropWrapper {
+    width: 45%;
+}
+@media screen and (max-width: 667px) { 
+    .dropBox, .dropWrapper {
+        width: 100%;
+    } 
+}
+
+.equipUl {
+    padding: 0;
+    margin: 0;
+}
+
+.equipLines {
+    list-style: none;
+}

@@ -1,25 +1,6 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components'
-import Colors from '../../utils/style/Colors'
+import "../Stars/index.css"
 import { IoStarSharp } from 'react-icons/io5'
-
-const Star = styled.i`
-    color: #E3E3E3;
-    font-size: 30px;
-    
-    @media (max-width: 667px) { 
-        font-size: 20px;
-    }
-`
-
-const StarsColor = styled.i`
-    color: ${Colors.primary};
-    font-size: 30px;
-
-    @media (max-width: 667px) { 
-        font-size: 20px;
-    }
-`
 
 function Stars({rating}){
     const ratingNumber = Number(rating)
@@ -28,8 +9,8 @@ function Stars({rating}){
     return (
         <div>
             {range.map((rank) => (
-                rank<=ratingNumber ? <StarsColor key={rank}><IoStarSharp /></StarsColor> 
-                : <Star key={rank}><IoStarSharp /></Star>
+                rank<=ratingNumber ? <i className='starsColor' key={rank}><IoStarSharp /></i> 
+                : <i className='star' key={rank}><IoStarSharp /></i>
             ))}
         </div>
     )

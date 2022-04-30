@@ -1,0 +1,115 @@
+.titleAccomodationContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: top;
+}
+@media screen and (max-width: 667px) { 
+    .titleAccomodationContainer {
+        flex-direction: column;
+    }
+}
+
+.locationAccomodationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: top;
+    width: 70%;
+}
+
+.hostAccomodationContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+@media screen and (max-width: 667px) { 
+    .hostAccomodationContainer {
+        flex-direction: row-reverse;
+        margin-top: 15px;
+    }
+}
+
+.accomodationTitle {
+    color: #FF6060;
+    font-size: 36px;
+    margin: 0;
+}
+@media screen and (max-width: 667px) { 
+    .accomodationTitle {
+        font-size: 18px;
+    }
+}
+
+.accomodationLocation {
+    color: #FF6060;
+    font-size: 18px;
+}
+@media screen and (max-width: 667px) { 
+    .accomodationLocation {
+        font-size: 14px;
+    }
+}
+
+.accomodationHote {
+    color: #FF6060;
+    font-size: 18px;
+    text-align: right;
+    margin-right: 15px;
+}
+@media screen and (max-width: 667px) { 
+    .accomodationHote {
+        font-size: 12px;
+    }
+}
+
+.accomodationHoteImage {
+    width: 64px;
+    height: 64px;
+    border-radius: 50px;
+    text-align: right;
+}
+@media screen and (max-width: 667px) { 
+    .accomodationHoteImage {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.tagsContainer {
+    display: flex;
+    justify-content: left;
+    flex-wrap: wrap;
+}
+
+.tagsWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #FF6060;
+    color: #FFFFFF;
+    border-radius: 15px;
+    padding: 10px 35px;
+    width: auto;
+    min-width: 115px;
+    height: 20px;
+    align-content: center;
+    margin-right: 20px;
+    margin-top:20px;
+    font-size: 14px;
+    }
+@media screen and (max-width: 667px) { 
+    .tagsWrap {
+        width: auto;
+        min-width: 84px;
+        height: 18px;
+        margin-top: 10px;
+        border-radius: 5px;
+        padding: 5px 25px;
+        font-size: 10px;
+    }
+}
+
+.hoteWrap {
+    display: flex;
+}

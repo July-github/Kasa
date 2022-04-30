@@ -1,0 +1,61 @@
+.cardContainer {
+    background-color: #F7F7F7;
+    border-radius: 25px;
+    width: 100%;
+    margin: auto;
+}
+@media screen and (max-width: 667px) { 
+    .cardContainer {
+      background-color: transparent;
+    }
+}
+
+.cardWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 100%;
+    width: 100%;
+    padding: 20px 40px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+@media screen and (max-width: 1019px) { 
+    .cardWrapper {
+      justify-content: center;
+      padding: 20px 0;
+    }
+}
+
+.cardDiv {
+    display: flex;
+    height: 340px;
+    width: 340px;
+    margin: 20px 15px;
+    border-radius: 10px;
+    position: relative;
+    background-color: rgb(108,34,36);
+    background: linear-gradient(0deg, rgba(108,34,36,0.75) 0%, rgba(255,94,101,1) 100%);
+}
+.cardDiv:hover{
+      cursor: pointer;
+    }
+
+@media screen and (max-width: 1019px) { 
+    .cardDiv{
+      height: 255px;
+      width: 95%;
+    }
+}
+@media screen and (max-width: 667px) { 
+    .cardDiv{
+      width: 100%;
+      margin: 20px 0px;
+    }
+}
+
+@media screen and (max-width: 1019px) {
+    .stylLink {
+    width: 100%;
+    }
+}
