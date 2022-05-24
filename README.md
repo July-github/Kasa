@@ -1,3 +1,14 @@
+![LOGO](https://user-images.githubusercontent.com/76209231/170083028-9cdfcbe8-a2f9-47e2-bbe0-2c39e9bd47b7.png)
+
+# Kasa
+
+Start the React project and develop the whole application, React components, React Router routes, following Figma templates.
+
+![library-react](https://user-images.githubusercontent.com/76209231/170083496-d44eb71f-2ed5-4356-a923-13ef75c6e94a.svg)
+![tool-create-react-app](https://user-images.githubusercontent.com/76209231/170083736-7840ebb3-8ab1-4eb6-99c3-710f4f770878.svg)
+![tool-react-router](https://user-images.githubusercontent.com/76209231/170083754-88675b89-a2e3-4a1a-abea-3a3545a94125.svg)
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
